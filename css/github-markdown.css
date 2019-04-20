@@ -9,6 +9,13 @@ body {
 	margin-left: auto;
 }
 
+.markdeepFooter {
+	font-size:9px;
+	text-align:right;
+	padding-top:80px;
+	color:#999
+}
+
 .md .octicon {
   display: inline-block;
   fill: currentColor;
