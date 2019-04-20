@@ -14,12 +14,12 @@ Topics may be duplicated under the following conditions:
 
 All resources must adhere to the following style guide.  Any resource that do not adhere will be rejected until such a time that it adheres.
 
-Resource Name - Heading Level 1
-Section Name - Heading Level 2
-Subsection Name - Heading Level 3
-Code - Highlighted using Markdown using the language specifier
-Links to Internal Resources - Use the Markdown hyperlink style
-Links to External Resources - Use the raw URL
+* Resource Name - Heading Level 1
+* Section Name - Heading Level 2
+* Subsection Name - Heading Level 3
+* Code - Highlighted using Markdown using the language specifier
+* Links to Internal Resources - Use the Markdown hyperlink style
+* Links to External Resources - Use the raw URL
 
 ## Review of Resources
 
