@@ -1,0 +1,9 @@
+plugins:
+    - jekyll-relative-links
+relative-links:
+    enabled: true
+    collections: true
+include:
+    - CONTRIBUTING.md
+    - CODE_OF_CONDUCT.md
+    - LICENSE.md
