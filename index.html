@@ -1,0 +1,31 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<meta charset="utf-8"/>
+
+		<!-- Our trusty markdown stylesheet -->
+		<link rel="stylesheet" href="css/github-markdown.css"/>
+
+		<!-- Load markdeep and set it to not automatically render markdown -->
+		<script>markdeepOptions={mode:'script'};</script>
+		<script src="scripts/markdeep.js"></script>
+	</head>
+	<body>
+		<code style="display:none" id="md">
+# Graphics Programming Resources
+
+Welcome to the Graphics Programming's discord knowledge base.
+
+Please refer to our [Code of Conduct](./CODE_OF_CONDUCT.html) and [Contribution Guide](./CONTRIBUTING.html) before contributing or submitting an issue.<br/>
+All information and code here falls under the [MIT LICENSE](./LICENSE.html).
+
+This knowledge base aims to cover a number of topics to help you make your dream renderer.
+		</code>
+
+		<!-- Finally render the markdown and display it -->
+		<script>
+			var formatted = markdeep.format(document.getElementById('md'));
+			document.body.innerHTML += formatted;
+		</script>
+	</body>
+</html>
