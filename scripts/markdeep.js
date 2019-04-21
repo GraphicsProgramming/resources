@@ -2066,6 +2066,9 @@ function markdeepToHTML(str, elementMode) {
     stylizeFence('backtick', '`');
 
     // Protect raw <CODE> content
+    str = str.rp(/<code\b\s*>(.*?)<\/code>/gi, function(match, body) {
+		return "<code>" + escapeHTMLEntities(body) + "</code>";
+	});
     str = str.rp(/(<code\b.*?<\/code>)/gi, protector);
 
     // Remove XML/HTML COMMENTS
