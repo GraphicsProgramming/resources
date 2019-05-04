@@ -108,6 +108,8 @@ vec3 change_luminance(vec3 c_in, float l_out)
 
 Two other more complex luminance-adjusting methods are discussed in a paper by Mantiuk et al. (<https://www.cl.cam.ac.uk/~rkm38/pdfs/mantiuk09cctm.pdf>), but the simple method is perfectly acceptable.
 
+Don't confuse *luminance* with *luma* - luma is the equivalent of the luminance computed from an sRGB pixel (i.e gamma-corrected). The coefficients used to convert to luma are the same as luminance, they just operate on sRGB components instead. See https://en.wikipedia.org/wiki/Luma_(video) for more details.
+
 Note that the hue / saturation preservation which results from this method isn't always desireable. Reinhard tone mapping in particular was created with the intention of being applied to luminance only, so it looks much better when this is done (see the following section for details on that). Other tone mapping curves look better when applied to RGB components separately.
 
 > "Reinhard was on the wrong track in applying his tone mapping curve to luminance; his curve was inspired by film, but film curves are applied to each color channel separately. And that is a good thing - [...] the "hue and saturation shifts" (really mostly saturation shifts) resulting from applying nonlinear curves per channel are an important feature, not a bug."
@@ -131,6 +133,23 @@ Here's the difference it makes - the stained glass windows and the column on the
 
 ![Reinhard applied to RGB channels](https://i.ibb.co/S6JdvQz/out.png) ![Reinhard applied to luminance](https://i.ibb.co/vmbB9QV/out.png)
 
+## Reinhard-Jodie Tone Mapping
+
+You aren't necessarily forced to choose between tone mapping RGB individually and tone mapping luminance. Here's one such Reinhard variant by Jodie (https://www.shadertoy.com/user/Jodie) which does that:
+
+```cpp
+vec3 reinhard_jodie(vec3 v)
+{
+    float l = luminance(v);
+    vec3 tv = v / (1.0f + v);
+    return lerp(v / (1.0f + l), tv, tv);
+}
+```
+
+The difference between this and the luminance-only tone map is barely noticeable in this scene (you can see that the stain glass windows are slightly less orange), but in other scenes (especially those with coloured lights) the difference is more obvious. Note that there's also no way to set the white point with this TMO, but you could add a way yourself.
+
+![Reinhard-Jodie tone mapping](https://i.imgur.com/ofIO1KR.png)
+
 # Filmic Tone Mapping Operators
 
 So-called 'filmic' TMOs are designed to emulate real film. Other than that, their defining feature is the distinctive 'toe' at the bottom end of the curve (radiance is on the $x$-axis, final pixel brigntess is on the $y$-axis):
@@ -141,7 +160,7 @@ Note that the other end of the tone mapping curve is usually described as the 's
 
 ## Uncharted 2 Tone Mapping
 
-A popular TMO for real-time video games is the Uncharted 2 TMO devised by John Hable (sometimes known as 'Hable Tone Mapping' or 'Hable Filmic' etc). It has some paramaters which can be tweaked, but the basic operator is given by the following code:
+A popular TMO for real-time video games is the Uncharted 2 TMO devised by John Hable (sometimes known as 'Hable Tone Mapping' or 'Hable Filmic' etc). It has some parameters which can be tweaked, but the basic operator is given by the following code:
 
 ```cpp
 vec3 uncharted2_tonemap_partial(vec3 x)
@@ -239,6 +258,8 @@ Since irradiance is the input and intensity is the output, you can visualise irr
 
 The data is given as two associative arrays. Given a irradiance value in $[0, 1]$ we need to find the index into the irradiance array (ideally using a binary search). Then, we can compute the output value by using the index we got from that binary search to look up the intensity value from the intensity array. We'll repeat this procedure for each RGB channel individually to compute the final color.
 
+For real-time graphics you might want to find a way to bake a LUT instead of doing a relatively expensive binary search.
+
 ```cpp
 float camera_get_intensity(float f, float iso)
 {
@@ -277,12 +298,17 @@ vec3 camera_tonemap(vec3 v, float iso)
 
 ![Tone mapping with the DSCS315-R1 response curve, ISO = 6.0](https://i.ibb.co/K78Xff4/out.png)
 
+# Local Tone Mapping Operators
+
+So far, all the TMOs I've discussed have been *global tone mapping operators*. This means that the computation they do is only based on the input radiance value and global image parameters like the average luminance. Tone mapping operators which are a function of position are known as *local tone mapping operators*. These are generally far more expensive and hence unsuitable for real time graphics - yet widely used in digital photography. Local TMOs can also give weird results when applied to video.
+
 # Conclusion
 
 Hopefully this guide was instructive. I've placed a grid of all TMOs used here for comparison, **but keep in mind that these can be adjusted in certain ways through exposure or other parameters, so this isn't entirely a fair comparison**. 
 
+<!-- ![Reinhard extended (white point set to max radiance component)](https://i.ibb.co/rQy8dq9/out.png) -->
 ![Clamp](https://i.ibb.co/TcZcBYD/out.png) ![Reinhard simple](https://i.ibb.co/S6JdvQz/out.png)
-![Reinhard extended (white point set to max radiance component)](https://i.ibb.co/rQy8dq9/out.png) ![Reinhard luminance (white point set to max luminance)](https://i.ibb.co/vmbB9QV/out.png)
+![Reinhard luminance (white point set to max luminance)](https://i.ibb.co/vmbB9QV/out.png) ![Reinhard-Jodie](https://i.imgur.com/ofIO1KR.png)
 ![Uncharted 2](https://i.ibb.co/MnFDk8n/out.png) ![ACES (exposed by 1.8)](https://i.ibb.co/m9SWRx2/out.png)
 ![ACES approximate (exposed by 1.8)](https://i.ibb.co/bmJCzWg/out.png) ![DSCS315-R1 (ISO = 6.0)](https://i.ibb.co/K78Xff4/out.png)
 

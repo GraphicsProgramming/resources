@@ -12,28 +12,12 @@
 #include "camera.h"
 
 float luminance(vec3);
-vec3 change_luminance(vec3 c_in, float l_out);
+vec3 change_luminance(vec3, float);
 float clamp(float, float, float);
 vec3 clamp(vec3, float, float);
 float lerp(float, float, float);
-
-float gamma_correct(float f)
-{
-    if (f <= 0.0031308f) {
-        return f * 12.92f;
-    } else {
-        return 1.055f * std::pow(f, 1.0f / 2.4f) - 0.055f;
-    }
-}
-
-vec3 clamp(vec3 v, float min, float max)
-{
-    return vec3(
-        clamp(v.r(), min, max),
-        clamp(v.g(), min, max),
-        clamp(v.b(), min, max)
-    );
-}
+vec3 lerp(vec3, vec3, vec3);
+float gamma_correct(float);
 
 vec3 reinhard(vec3 v)
 {
@@ -52,6 +36,13 @@ vec3 reinhard_extended_luminance(vec3 v, float max_white_l)
     float numerator = l_old * (1.0f + (l_old / (max_white_l * max_white_l)));
     float l_new = numerator / (1.0f + l_old);
     return change_luminance(v, l_new);
+}
+
+vec3 reinhard_jodie(vec3 v)
+{
+    float l = luminance(v);
+    vec3 tv = v / (1.0f + v);
+    return lerp(v / (1.0f + l), tv, tv);
 }
 
 vec3 uncharted2_tonemap_partial(vec3 x)
@@ -145,7 +136,7 @@ float camera_get_intensity(float f, float iso)
     double low_val = camera_intensity[idx];
     double high_val = get_or_one(camera_intensity, idx + 1);
 
-    // LERPing isn't really necessary for RGB8 (as the curve is sampled with 1024 points)
+    // Lerping isn't really necessary for RGB8 (as the curve is sampled with 1024 points)
     return clamp(lerp((float)low_val, (float)high_val, (float)lerp_param), 0.0f, 1.0f);
 }
 
@@ -155,6 +146,15 @@ vec3 camera_tonemap(vec3 v, float iso)
     float g = camera_get_intensity(v.g(), iso);
     float b = camera_get_intensity(v.b(), iso);
     return vec3(r, g, b);
+}
+
+float gamma_correct(float f)
+{
+    if (f <= 0.0031308f) {
+        return f * 12.92f;
+    } else {
+        return 1.055f * std::pow(f, 1.0f / 2.4f) - 0.055f;
+    }
 }
 
 float luminance(vec3 v)
@@ -173,10 +173,28 @@ float clamp(float f, float low, float high)
     return std::max(std::min(f, high), low);
 }
 
+vec3 clamp(vec3 v, float min, float max)
+{
+    return vec3(
+        clamp(v.r(), min, max),
+        clamp(v.g(), min, max),
+        clamp(v.b(), min, max)
+    );
+}
+
 float lerp(float a, float b, float t)
 {
     assert(t <= 1.0);
     return a * (1.0f - t) + b * t;
+}
+
+vec3 lerp(vec3 a, vec3 b, vec3 t)
+{
+    return vec3(
+        lerp(a.r(), b.r(), t.r()),
+        lerp(a.g(), b.g(), t.g()),
+        lerp(a.b(), b.b(), t.b())
+    );
 }
 
 uint8_t float_to_byte(float f)
@@ -191,6 +209,7 @@ vec3 tonemap(vec3 v)
     // return reinhard(v);
     // return reinhard_extended(v, 764.0f);
     // return reinhard_extended_luminance(v, 622.0f);
+    // return reinhard_jodie(v);
     // return uncharted2_filmic(v);
     // return aces_fitted(v * 1.8f);
     // return aces_approx(v * 1.8f);
