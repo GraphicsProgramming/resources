@@ -1,6 +1,6 @@
 # Tone Mapping
 
-All code for this guide is in C++ and the full source code can be downloaded [here](https://www.dropbox.com/s/162gi9ng5d8xk14/tonemap.zip?dl=1). For the `vec3` class, I'm using a slightly modified of the one found in Shirley's 'Ray Tracing in One Weekend' book.
+All code for this guide is in C++ and the full source code can be downloaded at https://www.dropbox.com/s/162gi9ng5d8xk14/tonemap.zip?dl=1. For the `vec3` class, I'm using a slightly modified of the one found in Shirley's 'Ray Tracing in One Weekend' book.
 
 ## What is tone mapping?
 
@@ -104,8 +104,8 @@ Two other more complex luminance-adjusting methods are discussed in a paper by M
 Note that the hue / saturation preservation which results from this method isn't always desireable. Reinhard tone mapping in particular was created with the intention of being applied to luminance only, so it looks much better when this is done (see the following section for details on that). Other tone mapping curves look better when applied to RGB components separately.
 
 > "Reinhard was on the wrong track in applying his tone mapping curve to luminance; his curve was inspired by film, but film curves are applied to each color channel separately. And that is a good thing - [...] the "hue and saturation shifts" (really mostly saturation shifts) resulting from applying nonlinear curves per channel are an important feature, not a bug."
->
->      -- Naty Hoffman, co-author of Real Time Rendering ([full quote](https://imdoingitwrong.wordpress.com/2010/08/19/why-reinhard-desaturates-my-blacks-3/#comment-3))
+
+-- Naty Hoffman, co-author of Real Time Rendering (<https://imdoingitwrong.wordpress.com/2010/08/19/why-reinhard-desaturates-my-blacks-3/#comment-3>)
 
 ## Extended Reinhard (Luminance Tone Map)
 
