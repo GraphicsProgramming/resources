@@ -1,6 +1,11 @@
+<head>
+    <title>Tone Mapping | Graphics Programming Resources</title>
+</head>
+<body>
+
 # Tone Mapping
 
-All code for this guide is in C++ and the full source code can be downloaded at https://www.dropbox.com/s/162gi9ng5d8xk14/tonemap.zip?dl=1. For the `vec3` class, I'm using a slightly modified of the one found in Shirley's 'Ray Tracing in One Weekend' book.
+All code for this guide is in C++ and the full source code can be found at https://github.com/graphicsprogramming/resources/tree/gh-pages/tonemapping. For the `vec3` class, I'm using a slightly modified of the one found in Shirley's 'Ray Tracing in One Weekend' book.
 
 ## What is tone mapping?
 
@@ -33,6 +38,8 @@ This is one of the simplest and most common TMOs, described by Reinhard et al. i
 Simply put, it is:
 
 $$ \mathrm{TMO_{reinhard}}(C) = \frac{C}{1 + C} $$
+
+(Note that this isn't exactly what Reinhard is proposing in his paper, but more on that further down.)
 
 This is mathematically guaranteed to produce a value in $[0, 1]$. By differentiating, you can see that $C_{\mathrm{out}}$ has an inverse-square falloff (e.g a radiance value of 4 results in something which is only 1.2 times as bright as a radiance value of 2).
 
@@ -279,8 +286,18 @@ Hopefully this guide was instructive. I've placed a grid of all TMOs used here f
 ![Uncharted 2](https://i.ibb.co/MnFDk8n/out.png) ![ACES (exposed by 1.8)](https://i.ibb.co/m9SWRx2/out.png)
 ![ACES approximate (exposed by 1.8)](https://i.ibb.co/bmJCzWg/out.png) ![DSCS315-R1 (ISO = 6.0)](https://i.ibb.co/K78Xff4/out.png)
 
+## Further Reading
+
+* *High Dynamic Range Imaging Book*, R. Mantiuk et al. - https://www.cl.cam.ac.uk/~rkm38/pdfs/mantiuk15hdri.pdf
+* *Filmic Worlds Blog* - John Hable - http://filmicworlds.com/blog/
+* *Tone Mapping (slides)* - R. Mantiuk - https://www.cl.cam.ac.uk/~rkm38/pdfs/tone_mapping.pdf
+* *Dynamic Range, Exposure and Tone Mapping* - Seena Burns - http://seenaburns.com/dynamic-range/
+
+
 <!-- Markdeep: -->
 <style class="fallback">body{visibility:hidden;white-space:pre;font-family:monospace}</style>
 <script src="../scripts/markdeep.js"></script>
 <script>window.alreadyProcessedMarkdeep||(document.body.style.visibility="visible")</script>
 <link rel="stylesheet" href="../css/github-markdown.css"/>
+
+</body>
