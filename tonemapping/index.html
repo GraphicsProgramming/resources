@@ -231,7 +231,7 @@ vec3 aces_fitted(vec3 v)
 }
 ```
 
-![ACES tone mapping (HDR values exposed by a factor of 1.8 before tone mapping in this image)](https://i.ibb.co/m9SWRx2/out.png)
+![ACES tone mapping](https://i.imgur.com/YZ0eNGw.png)
 
 You can also use this approximated ACES fit by Krzysztof Narkowicz for something a bit more performant (adapted from https://knarkowicz.wordpress.com/2016/01/06/aces-filmic-tone-mapping-curve/):
 
@@ -248,7 +248,7 @@ vec3 aces_approx(vec3 v)
 }
 ```
 
-![Approximated ACES tone mapping (HDR values exposed by a factor of 1.8 before tone mapping in this image)](https://i.ibb.co/bmJCzWg/out.png)
+![ACES tone mapping (worse fit)](https://i.imgur.com/Ck14lqL.png)
 
 # Real Camera Response Functions
 
@@ -300,7 +300,9 @@ vec3 camera_tonemap(vec3 v, float iso)
 
 # Local Tone Mapping Operators
 
-So far, all the TMOs I've discussed have been *global tone mapping operators*. This means that the computation they do is only based on the input radiance value and global image parameters like the average luminance. Tone mapping operators which are a function of position are known as *local tone mapping operators*. These are generally far more expensive and hence unsuitable for real time graphics - yet widely used in digital photography. Local TMOs can also give weird results when applied to video.
+So far, all the TMOs I've discussed have been *global tone mapping operators*. This means that the computation they do is only based on the input radiance value and global image parameters like the average luminance. Tone mapping operators which are a function of position are known as *local tone mapping operators*. These are generally far more expensive and hence unsuitable for real time graphics - yet widely used in digital photography. Local TMOs can also give strange results when applied to video.
+
+One local tone mapping operator is described in the same paper by Reinhard et al. (<https://www.cs.utah.edu/~reinhard/cdrom/tonemap.pdf>). It involves a digital simulation of a process known as 'dodging and burning' in real photography, which essentially applies different contrast to different regions of the image, which often results in more detailed images than global tone mapping operators are able to produce.
 
 # Conclusion
 
@@ -309,8 +311,8 @@ Hopefully this guide was instructive. I've placed a grid of all TMOs used here f
 <!-- ![Reinhard extended (white point set to max radiance component)](https://i.ibb.co/rQy8dq9/out.png) -->
 ![Clamp](https://i.ibb.co/TcZcBYD/out.png) ![Reinhard simple](https://i.ibb.co/S6JdvQz/out.png)
 ![Reinhard luminance (white point set to max luminance)](https://i.ibb.co/vmbB9QV/out.png) ![Reinhard-Jodie](https://i.imgur.com/ofIO1KR.png)
-![Uncharted 2](https://i.ibb.co/MnFDk8n/out.png) ![ACES (exposed by 1.8)](https://i.ibb.co/m9SWRx2/out.png)
-![ACES approximate (exposed by 1.8)](https://i.ibb.co/bmJCzWg/out.png) ![DSCS315-R1 (ISO = 6.0)](https://i.ibb.co/K78Xff4/out.png)
+![Uncharted 2](https://i.ibb.co/MnFDk8n/out.png) ![ACES](https://i.imgur.com/YZ0eNGw.png)
+![ACES (worse fit)](https://i.imgur.com/Ck14lqL.png) ![DSCS315-R1 (ISO = 6.0)](https://i.ibb.co/K78Xff4/out.png)
 
 ## Further Reading
 
