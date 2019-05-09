@@ -4,7 +4,7 @@ Since GitHub markdown doesn't natively support LaTex, we use markdeep.
 Specifically, a slightly modified version of markdeep to look like GitHub markdown.
 
 Using markdeep is relatively straight forward. You write your markdown as you normally would, and use the special markdeep syntax for its extra features (the syntax is explained on [their website](https://casual-effects.com/markdeep/)).  
-Besides that you add the script snippets at the bottom of your markdown file, and save it with the extension `.md.html`.  
+Besides that you add the script snippets at the bottom of your markdown file, and save it with the extension `.md.html`. Note that the index file must be named `index.html` if you're using markdeep features.
 The script snippets can be found in [template.md.html](template.md.html).
 
 # Requirements
