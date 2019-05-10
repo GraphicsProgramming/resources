@@ -1,3 +1,5 @@
+<!DOCTYPE html>
+<html>
 <head>
     <title>Tone Mapping | Graphics Programming Resources</title>
 </head>
@@ -135,7 +137,7 @@ Here's the difference it makes - the stained glass windows and the column on the
 
 ## Reinhard-Jodie Tone Mapping
 
-You aren't necessarily forced to choose between tone mapping RGB individually and tone mapping luminance. Here's one such Reinhard variant by Jodie (https://www.shadertoy.com/user/Jodie) which does that:
+You aren't necessarily forced to choose between tone mapping RGB individually and tone mapping luminance. Here's one such Reinhard variant by Jodie (<https://www.shadertoy.com/user/Jodie>) which does that:
 
 ```cpp
 vec3 reinhard_jodie(vec3 v)
@@ -152,7 +154,7 @@ The difference between this and the luminance-only tone map is barely noticeable
 
 # Filmic Tone Mapping Operators
 
-So-called 'filmic' TMOs are designed to emulate real film. Other than that, their defining feature is the distinctive 'toe' at the bottom end of the curve (radiance is on the $x$-axis, final pixel brigntess is on the $y$-axis):
+So-called 'filmic' TMOs are designed to emulate real film. Other than that, their defining feature is the distinctive 'toe' at the bottom end of the curve (radiance is on the $x$-axis, final pixel brightness is on the $y$-axis):
 
 ![](https://i.imgur.com/apsY7L0.png)
 
@@ -191,7 +193,7 @@ For some further reading, see John Hable's blog post about creating an improved 
 
 ## ACES Tone Mapping
 
-Another popular filmic tone mapping curve is ACES (Academy Color Encoding System). This is the default TMO used by Unreal Engine 4 so would be a perfectly good choice to use in your own real-time engine. The TMO curve is calculated through a couple of matrix transformations and formulae which are shown below (adapted from <https://github.com/TheRealMJP/BakingLab/blob/master/BakingLab/ACES.hlsl>):
+Another popular filmic tone mapping curve is ACES (Academy Color Encoding System). This is the default TMO used by Unreal Engine 4 so would be a perfectly good choice to use in your own real-time engine. The TMO curve is calculated through a couple of matrix transformations and formulae which are shown below (adapted from [​https://github.com/TheRealMJP/BakingLab/blob/master/BakingLab/ACES.hlsl](https://github.com/TheRealMJP/BakingLab/blob/master/BakingLab/ACES.hlsl​)):
 
 ```cpp
 static const std::array&lt;vec3, 3> aces_input_matrix =
@@ -302,7 +304,7 @@ vec3 camera_tonemap(vec3 v, float iso)
 
 So far, all the TMOs I've discussed have been *global tone mapping operators*. This means that the computation they do is only based on the input radiance value and global image parameters like the average luminance. Tone mapping operators which are a function of position are known as *local tone mapping operators*. These are generally far more expensive and hence unsuitable for real time graphics - yet widely used in digital photography. Local TMOs can also give strange results when applied to video.
 
-One local tone mapping operator is described in the same paper by Reinhard et al. (<https://www.cs.utah.edu/~reinhard/cdrom/tonemap.pdf>). It involves a digital simulation of a process known as 'dodging and burning' in real photography, which essentially applies different contrast to different regions of the image, which often results in more detailed images than global tone mapping operators are able to produce.
+One local tone mapping operator is described in the same paper by Reinhard et al. (<https://www.cs.utah.edu/~reinhard/cdrom/tonemap.pdf>). It involves a digital simulation of a process known as 'dodging and burning' in real photography, which essentially applies different contrast to different regions of the image, often resulting in more detailed images than global tone mapping operators are able to produce.
 
 # Conclusion
 
@@ -329,3 +331,4 @@ Hopefully this guide was instructive. I've placed a grid of all TMOs used here f
 <link rel="stylesheet" href="../css/github-markdown.css"/>
 
 </body>
+</html>
