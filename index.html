@@ -6,46 +6,52 @@
 		<!-- Our trusty markdown stylesheet -->
 		<link rel="stylesheet" href="css/github-markdown.css"/>
 
-		<!-- Create the google custom search bar -->
-		<script>
-			(function() {
-				var cx = '004597175054357110325:jsvyns76ftg';
-				var gcse = document.createElement('script');
-				gcse.type = 'text/javascript';
-				gcse.async = true;
-				gcse.src = 'https://cse.google.com/cse.js?cx=' + cx;
-				var s = document.getElementsByTagName('script')[0];
-				s.parentNode.insertBefore(gcse, s);
-			})();
-		</script>
-
 		<!-- Load markdeep and set it to not automatically render markdown -->
 		<script>markdeepOptions={mode:'script'};</script>
 		<script src="scripts/markdeep.js"></script>
 	</head>
 	<body>
-		<!-- Create the custom search toolbar -->
-		<gcse:search></gcse:search>
+		<code style="display:none" id="content">
+		# Graphics Programming Resources
 
-		<code style="display:none" id="md">
-# Graphics Programming Resources
+		Welcome to the Graphics Programming's discord knowledge base.
+		This knowledge base aims to cover a number of topics to spread knowledge and help you learn more about what you want to know.
 
-Welcome to the Graphics Programming's discord knowledge base.
+		## Architecture
 
-Please refer to our [Code of Conduct](./CODE_OF_CONDUCT.html) and [Contribution Guide](./CONTRIBUTING.html) before contributing or submitting an issue.<br/>
-All information and code here falls under the [MIT LICENSE](./LICENSE.html).
+		## Algorithms
 
-This knowledge base aims to cover a number of topics to help you make your dream renderer.
+		## Maths
 
-## Resources
+		## General Graphics
 
-1. [Using markdeep for LaTex in markdown](./LaTexMD/)
-2. [Tone Mapping](./tonemapping/)
+		## Ray Tracing
+
+		## DirectX
+
+		## OpenGL
+
+		## Vulkan
+
+		## Metal
+
+		## GPU
+
+		## Software
+
+		## Unity
+
+		## Unreal Engine
+
+		## Linux
+
+		## Windows
+
 		</code>
 
 		<!-- Finally render the markdown and display it -->
 		<script>
-			var formatted = markdeep.format(document.getElementById('md'));
+			var formatted = markdeep.format(document.getElementById('content'));
 			document.body.innerHTML += formatted;
 		</script>
 	</body>
