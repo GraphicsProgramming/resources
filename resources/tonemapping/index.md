@@ -1,10 +1,3 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Tone Mapping | Graphics Programming Resources</title>
-</head>
-<body>
-
 # Tone Mapping
 
 All code for this guide is in C++ and the full source code can be found at https://github.com/graphicsprogramming/resources/tree/gh-pages/tonemapping. For the `vec3` class, I'm using a slightly modified of the one found in Shirley's 'Ray Tracing in One Weekend' book.
@@ -35,7 +28,7 @@ The rest of this guide will explore a few simple tone mapping operators, as well
 
 ## Reinhard Tonemapping
 
-This is one of the simplest and most common TMOs, described by Reinhard et al. in this paper: https://www.cs.utah.edu/~reinhard/cdrom/tonemap.pdf.
+This is one of the simplest and most common TMOs.
 
 Simply put, it is:
 
@@ -322,13 +315,3 @@ Hopefully this guide was instructive. I've placed a grid of all TMOs used here f
 * *Filmic Worlds Blog* - John Hable - http://filmicworlds.com/blog/
 * *Tone Mapping (slides)* - R. Mantiuk - https://www.cl.cam.ac.uk/~rkm38/pdfs/tone_mapping.pdf
 * *Dynamic Range, Exposure and Tone Mapping* - Seena Burns - http://seenaburns.com/dynamic-range/
-
-
-<!-- Markdeep: -->
-<style class="fallback">body{visibility:hidden;white-space:pre;font-family:monospace}</style>
-<script src="../scripts/markdeep.js"></script>
-<script>window.alreadyProcessedMarkdeep||(document.body.style.visibility="visible")</script>
-<link rel="stylesheet" href="../css/github-markdown.css"/>
-
-</body>
-</html>
