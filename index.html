@@ -8,62 +8,51 @@
 	<link rel="stylesheet" href="css/github-markdown.css" />
 
 	<!-- Load markdeep and set it to not automatically render markdown -->
-	<script>markdeepOptions = { mode: 'script' };</script>
-	<script src="scripts/markdeep.js"></script>
+	<script>markdeepOptions = { mode: 'markdeep', tocStyle: 'long' };</script>
+	<script src="scripts/markdeep.min.js"></script>
 </head>
 
 <body>
 	<code style="display:none" id="content">
-		# Resources for Graphics Programming
+		(#) Resources for Graphics Programming
 
 		Welcome to the Graphics Programming's Discord knowledge base. This resource is used to collect other resources into a centralized location.
 
-		## Table of Contents
-		[APIs](#apis)
-		* [Direct3D](#direct3d)
-		* [Metal](#metal)
-		* [OpenGL](#opengl)
-		* [Vulkan](#vulkan)
-		[Shader Programming](#shader-programming)
-		* [Guides](#guides)
-		[Techniques](#techniques)
-		* [Render Graphs](#render-graphs)
-		* [Tonemapping](#tonemapping)
+		# APIs
 
-		## APIs
-
-		### Direct3D
+		## Direct3D
 		* [bell0bytes Blog - DirectX Fundamentals](https://bell0bytes.eu/direct-x-com/)
 		* [3DGEP Blog - DirectX Tutorials](https://www.3dgep.com/category/graphics-programming/directx/)
 		* [DirectX Specification](https://microsoft.github.io/DirectX-Specs/)
 
-		### Metal
+		## Metal
 		* [Metal Specification](https://developer.apple.com/documentation/metal)
 
-		### OpenGL
+		## OpenGL
 		* [Guide to Modern OpenGL Functions](https://github.com/fendevel/Guide-to-Modern-OpenGL-Functions)
 		* [Learn OpenGL](https://learnopengl.com/)
 		* [OpenGL 4.6 Specification](https://www.khronos.org/registry/OpenGL/specs/gl/glspec46.core.pdf)
 
-		### Vulkan
+		## Vulkan
 		* [Fundamentals of the Vulkan Graphics API: Why Rendering a Triangle is Complicated](https://liamhinzman.com/blog/vulkan-fundamentals)
 		* [Vulkan 1.2.141 Specification](https://www.khronos.org/registry/vulkan/specs/1.2-extensions/html/vkspec.html)
 		* [Vulkan Tutorial](https://vulkan-tutorial.com/)
 
-		## Shader Programming
+		# Shader Programming
 
-		### Guides
+		## Guides
+
 		* [3D Game Shaders for Beginners](https://github.com/lettier/3d-game-shaders-for-beginners)
 		
-		## Techniques
+		# Techniques
 	  
-		### Render Graphs
+		## Render Graphs
 		* [FrameGraph: Extensible Rendering Architecture in Frostbite](https://www.slideshare.net/DICEStudio/framegraph-extensible-rendering-architecture-in-frostbite)
 		* [High-Level Rendering Using Render Graphs](https://ourmachinery.com/post/high-level-rendering-using-render-graphs/)
 		* [Organizing GPU Work with Directed Acyclic Graphs](https://medium.com/@pavlo.muratov/organizing-gpu-work-with-directed-acyclic-graphs-f3fd5f2c2af3)
 		* [Render graphs and Vulkan - a deep dive](https://themaister.net/blog/2017/08/15/render-graphs-and-vulkan-a-deep-dive/)
 		
-		### Tonemapping
+		## Tonemapping
 		* [Community Tone Mapping Guide](/tonemapping/index.html)
 		* [Dynamic Range, Exposure, and Tone Mapping](https://www.cl.cam.ac.uk/~rkm38/pdfs/tone_mapping.pdf)
 		* [Filmic Worlds Blog](http://filmicworlds.com/blog/)
