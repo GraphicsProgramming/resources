@@ -5,3 +5,35 @@
 	align-items: center;
 	justify-content: center;
 }
+
+.showcase-preview-container
+{
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	justify-content: space-between;
+	align-items: center;
+}
+
+.showcase-preview-element
+{
+	display: flex;
+	flex-direction: column;
+}
+
+.showcase-preview-link
+{
+	font-size: 1.5rem;
+	text-align: center;
+}
+
+.preview-frame
+{
+	outline: none;
+	height: auto;
+}
+
+img.markdeep
+{
+	width: 100%;
+}
