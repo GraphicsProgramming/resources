@@ -16,33 +16,28 @@
 	<!-- Load markdeep and set it to not automatically render markdown -->
 	<script>markdeepOptions = { mode: 'script', tocStyle: 'none' };</script>
 	<script src="/scripts/markdeep.min.js"></script>
+	<script src="/scripts/include.js"></script>
 </head>
 
 <body>
 	<code style="display:none" id="content">
-		# Graphics Programming
-		
+		# Community Creation Showcase
+
 		<nav class="mx-auto text-center">
 			[Home](/) &bull; [Resources](/resources) &bull; [Showcase](/showcase)
 		</nav>
 
-		<p class="text-justify">
-		Graphics Programming is an online community of graphics programmers of all backgrounds and experience levels.  The community
-		is primarily based through Discord.  In the community, the spread of knowledge of APIs, rendering techniques, and more, is
-		promoted in order to push the boundaries of what's possible.  For the spread of knowledge, members of the community have pooled
-		together knowledge in a central location at our [resources page](/resources).  Many members of the community have projects, from
-		simple renderers, to game engines, to widely used APIs.  In addition, there is currently a community vulkan accelerated ray tracer
-		in development.
+		[View the Latest Showcase](/showcase/2020/october)
+
+		## [2020](/showcase/2020)
+		<div w3-include-html="/showcase/2020/showcase_preview.html"></div>
+
+		<hr />
+
+		<p>
+			All media in this showcase are taken from the #showcase-media channel on the server.  If you'd like to have
+			a chance to have your image seen here, post your creations in the channel.
 		</p>
-		## Community Links
-		<div class="inline-same-height container">
-			<a href="https://discord.gg/46eyBDb" alt="Discord Community Link">
-				<img style="height: 10em" src="/res/logos/Discord_Logo.png" alt="Discord Logo" />
-			</a>
-			<a href="https://github.com/GraphicsProgramming/" alt="GitHub Organization Link">
-				<img style="height: 10em" src="/res/logos/GitHub_Logo.png" alt="GitHub Logo" />
-			</a>
-		</div>
 	</code>
 
 	<!-- Finally render the markdown and display it -->
@@ -55,3 +50,7 @@
 </body>
 
 </html>
+
+<script>
+	includeHTML();
+</script> 
