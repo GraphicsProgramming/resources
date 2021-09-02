@@ -7,4 +7,4 @@ Feel free to send in a Pull Request.
 
 When you have trouble boop one of the mods/admins on the discord for help.
 
-[Join `Graphics Programming` Discord](https://discordapp.com/channels/318590007881236480/417774362641301514/515892565501935653)
+[Join `Graphics Programming` Discord](https://discord.gg/Eb7P3wH)
