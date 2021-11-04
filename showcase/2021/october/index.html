@@ -1,0 +1,102 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+	<meta charset="utf-8" />
+
+	<!-- Our trusty markdown stylesheet -->
+	<link rel="stylesheet" href="/css/github-markdown.css" />
+	<link rel="stylesheet" href="/css/utils.css" />
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+		integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+
+	<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+		integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+		crossorigin="anonymous"></script>
+	<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+		integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
+		crossorigin="anonymous"></script>
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
+		integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
+		crossorigin="anonymous"></script>
+
+	<!-- Load markdeep and set it to not automatically render markdown -->
+	<script>markdeepOptions = { mode: 'script', tocStyle: 'none' };</script>
+	<script src="/scripts/markdeep.min.js"></script>
+
+	<title>October 2021 Showcase</title>
+
+	<!-- Open Graph Metadata -->
+	<meta property="og:title" content="October 2021 Showcase" />
+	<meta property="og:type" content="website" />
+	<meta property="og:url" content="https://graphics-programming.org/showcase/2021/october/" />
+	<meta property="og:image" content="https://imgur.com/JvHWTv6.png" />
+	<meta property="og:description"
+		content="Graphics Programming Community created content showcase for October 2021" />
+</head>
+
+<body>
+	<code style="display:none" id="content">
+		# October 2021 Community Creation Showcase
+
+		<nav class="mx-auto text-center">
+			[Home](/) &bull; [Resources](/resources) &bull; [Showcase](/showcase)
+		</nav>
+
+		<div>
+			<video controls width="100%">
+				<source src="https://i.imgur.com/zHgmVb6.mp4"
+						type="video/webm">
+						Sorry, your browser doesn't support embedded videos.
+			</video>
+        </div>
+		<center>
+			Created by @Mudkip Hacker#1269
+		</center>
+
+		<hr />
+
+		<div>
+			<video controls width="100%">
+				<source src="https://i.imgur.com/soy37oo.mp4"
+						type="video/webm">
+						Sorry, your browser doesn't support embedded videos.
+			</video>
+        </div>
+		<center>
+            Created by @N8#2718
+		</center>
+
+		<hr />
+
+        ![](https://imgur.com/EAz9VzK.png)
+		<center>
+			Created by @jb#0396
+		</center>
+
+        <br />
+
+		![](https://imgur.com/8gBrxic.png)
+		<center>
+			Created by @Zuen#5394
+		</center>
+
+		<hr />
+
+		<p>
+			All media in this showcase are taken from the #showcase channel on the server.  If you'd like to have
+			a chance to have your image seen here, post your creations in the channel.
+		</p>
+
+	</code>
+
+	<!-- Finally render the markdown and display it -->
+	<script>
+		var formatted = markdeep.format(document.getElementById('content'));
+		var contents = $.parseHTML(formatted);
+		$('body').add('span').addClass('container').add(contents);
+		$('#content').after(contents);
+	</script>
+</body>
+
+</html>
