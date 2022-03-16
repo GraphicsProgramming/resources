@@ -25,7 +25,17 @@
 }
 
 div.showcase-preview-element {
-	height: 11em;
+	height: calc(12vh + 1.5em + 16px);
+}
+
+img.showcase-preview-year-img {
+	height: 24vh;
+	object-fit: cover;
+}
+
+img.showcase-preview-element-img {
+	height: 12vh;
+	object-fit: cover;
 }
 
 .showcase-preview-year
@@ -34,12 +44,7 @@ div.showcase-preview-element {
 	flex-direction: column;
 	padding-left: 0.5vw;
 	padding-right: 0.5vw;
-	padding-bottom: 0.25vw;
-}
-
-div.showcase-preview-year > a > img {
-	object-fit: cover;
-	height: 100%;
+	padding-bottom: 0.25vh;
 }
 
 .showcase-preview-link
