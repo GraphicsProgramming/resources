@@ -1,0 +1,148 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+	<meta charset="utf-8" />
+
+	<!-- Our trusty markdown stylesheet -->
+	<link rel="stylesheet" href="/css/github-markdown.css" />
+	<link rel="stylesheet" href="/css/utils.css" />
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+		integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+
+	<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+		integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+		crossorigin="anonymous"></script>
+	<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+		integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
+		crossorigin="anonymous"></script>
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
+		integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
+		crossorigin="anonymous"></script>
+
+	<!-- Load markdeep and set it to not automatically render markdown -->
+	<script>markdeepOptions = { mode: 'script', tocStyle: 'none' };</script>
+	<script src="/scripts/markdeep.min.js"></script>
+
+	<title>January 2022 Showcase</title>
+
+	<!-- Open Graph Metadata -->
+	<meta property="og:title" content="January 2022 Showcase" />
+	<meta property="og:type" content="website" />
+	<meta property="og:url" content="https://graphics-programming.org/showcase/2022/january/" />
+	<meta property="og:image" content="https://i.imgur.com/ryjAYC2.png" />
+	<meta property="og:description"
+		content="Graphics Programming Community created content showcase for January 2022" />
+</head>
+
+<body>
+	<code style="display:none" id="content">
+		# January 2022 Community Creation Showcase
+
+		<nav class="mx-auto text-center">
+			[Home](/) &bull; [Resources](/resources) &bull; [Showcase](/showcase)
+		</nav>
+
+		![](https://i.imgur.com/ryjAYC2.png)
+		<center>
+			Created by @Nameless#1608
+		</center>
+
+		<hr />
+
+		![](https://i.imgur.com/JfIKgM2.gif)
+		<center>
+			Created by @Tarnegol#9014
+		</center>
+
+		<hr />
+
+		<div class="aspect-ratio-16-9">
+			<iframe width="560" height="315" src="https://youtube.com/embed/boSpUOe9rBk" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+		</div>
+		<center>
+			Created by @BIG WILLY#5778
+		</center>
+
+		<hr />
+
+		![](https://i.imgur.com/2c70DJE.png)
+		<center>
+			Created by @Sirflankalot#3671
+		</center>
+
+		<hr />
+
+		![](https://i.imgur.com/K2aMugD.png)
+		<center>
+			Created by @BlackFox#7549
+		</center>
+
+		<hr />
+
+		![](https://i.imgur.com/fLBqWiq.gif)
+		<center>
+			Created by @Absolute Units#0038
+		</center>
+
+		<hr />
+
+		![](https://i.imgur.com/StJ2pFl.mp4)
+		<center>
+			Created by @neure#5802
+		</center>
+
+		<hr />
+
+		![](https://i.imgur.com/dfbatzL.png)
+		<center>
+			Created by @Galacti2#0027
+		</center>
+
+		<hr />
+
+		![](https://i.imgur.com/S8KWvRH.png)
+		<center>
+			Created by @pixelcluster#8137
+		</center>
+
+		<hr />
+
+		![](https://i.imgur.com/jIjlcky.png)
+		<center>
+			Created by @lycium#5338
+		</center>
+
+		<hr />
+
+		![](https://i.imgur.com/3YIjrXK.png)
+		<center>
+			Created by @nightchild#5125
+		</center>
+
+		<hr />
+
+		![](https://i.imgur.com/7TO44Hn.mp4)
+		<center>
+			Created by @Bolt#6265
+		</center>
+
+		<hr />
+
+		<p>
+			All media in this showcase are taken from the #showcase channel on the server.  If you'd like to have
+			a chance to have your image seen here, post your creations in the channel.
+		</p>
+
+	</code>
+
+	<!-- Finally render the markdown and display it -->
+	<script>
+		var formatted = markdeep.format(document.getElementById('content'));
+		var contents = $.parseHTML(formatted);
+		$('body').add('span').addClass('container').add(contents);
+		$('#content').after(contents);
+	</script>
+</body>
+
+</html>
